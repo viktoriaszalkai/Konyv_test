@@ -34,11 +34,11 @@ class KonyvTest {
         szerzok = List.of("sz1", "sz2", "sz3");
         konyv = new Konyv(szerzok, "cim1", 1000,1978);
         assertEquals(konyv.getSzerzok().size(), szerzok.size());
-        konyv.setSzerzok("sz4");
+        konyv.setSzerzok("sz4");  //ez hozzáad
         assertTrue(konyv.getSzerzok().size() > szerzok.size());
     }
-//
-//    @Test
+
+//    @Test //hashcode, equals
 //    void testEgyformak(){
 //        Konyv k1 = new Konyv("sz", "cim1", 1000,1978);
 //        k1.setAr(2000);
@@ -47,13 +47,13 @@ class KonyvTest {
 //        assertEquals(k1, k2);
 //    }
 //
-//    @Test
+//    @Test //comparable, comperator
 //    void testRendezesCim(){
 //        Konyv k1 = new Konyv("aaa", "acim1", 1001,2001);
 //        Konyv k3 = new Konyv("ccc", "ccim3", 1003,2003);
 //        Konyv k4 = new Konyv("xxx", "xcim4", 1004,2004);
 //        Konyv k2 = new Konyv("bbb", "bcim2", 1002,2002);
-//        TreeSet<Konyv> rendezett = new TreeSet<>(Konyv.rendezCim());
+//        TreeSet<Konyv> rendezett = new TreeSet<>(Konyv.rendezCim()); // statikus metódus, komparatort kell visszaadnia
 //        rendezett.add(k1);
 //        rendezett.add(k2);
 //        rendezett.add(k3);
@@ -61,7 +61,7 @@ class KonyvTest {
 //
 //        Konyv k;
 //        k = new Konyv("www", "ac", 1001,2001);
-//        assertEquals(rendezett.ceiling(k), k1);
+//        assertEquals(rendezett.ceiling(k), k1); //nincs indexe, ezzel lehet lekérni, meg tdja nézni, hogy ahhoz képest van e nagyobb
 //        k = new Konyv("www", "bc", 1001,2001);
 //        assertEquals(rendezett.ceiling(k), k2);
 //        k = new Konyv("www", "cc", 1001,2001);
@@ -80,7 +80,7 @@ class KonyvTest {
 //        List<Konyv> konyvek = Arrays.asList(k0, k1, k2, k3, k4);
 //        Collections.shuffle(konyvek);
 //
-//        konyvek.sort(Konyv.rendezAr());
+//        konyvek.sort(Konyv.rendezAr()); //comparator alapján ellenőriz
 //        assertEquals(1000, konyvek.get(0).getAr());
 //        assertEquals(1001, konyvek.get(1).getAr());
 //        assertEquals(1002, konyvek.get(2).getAr());
@@ -89,7 +89,7 @@ class KonyvTest {
 //    }
 //
 //    @Test
-//    void testRendezesAlapErtElsoSzerzore(){
+//    void testRendezesAlapErtElsoSzerzore(){ //comparable, alapértelmezett rendezés
 //        List<String>szerzok;
 //
 //        szerzok = List.of("aaa", "xxx");
